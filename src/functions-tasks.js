@@ -33,7 +33,7 @@ function getCurrentFunctionName() {
  *
  */
 function getFunctionBody(func) {
-  return func;
+  return func ? `${func}` : '';
 }
 
 /**
@@ -50,7 +50,7 @@ function getFunctionBody(func) {
  *  ]) => [0, 1, 2]
  *
  */
-function getArgumentsCount(/* func s */) {
+function getArgumentsCount(/* funcs */) {
   throw new Error('Not implemented');
 }
 
