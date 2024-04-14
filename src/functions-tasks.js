@@ -177,9 +177,15 @@ function retry(func, attempts) {
  *
  */
 function logger(func, logFunc) {
-  const start = func.name + func.arguments;
-  const end = func.name + func.arguments;
-  return () => logFunc(start, end);
+  // const start = func.name + func.arguments.split('');
+  // const end = func.name + func.arguments;
+  return (...arg) => {
+    //  const start = func.name + '(' +  arg.join('') + ') starts';
+    logFunc(`${func.name}(${arg.join('')}) starts`);
+    logFunc(`${func.name}(${arg.join('')}) ends`);
+    //   const end = func.name + arguments;
+    return func(...arg);
+  };
 }
 
 /**
