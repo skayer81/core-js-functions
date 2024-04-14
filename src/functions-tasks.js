@@ -85,9 +85,18 @@ const getPowerFunction = (exponent) => (x) => x ** exponent;
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom() {
-  const l = arguments.length;
-  console.log(l);
+function getPolynom(...arg) {
+  const result = (x) => {
+    if (arg.length === 0) {
+      return null;
+    }
+    let res = 0;
+    for (let i = 0; i < arg.length; i += 1) {
+      res = arg[i] * x ** (arg.length - i - 1) + res;
+    }
+    return res;
+  };
+  return result;
 }
 
 /**
